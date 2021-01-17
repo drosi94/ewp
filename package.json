@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Exams Web Platform build using web components",
   "scripts": {
+    "run:server": "node server/server.js",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "lint": "yarn run lint:lit-analyzer && yarn run lint:eslint",
@@ -10,7 +11,7 @@
     "lint:lit-analyzer": "lit-analyzer",
     "format": "prettier src/* --write",
     "analyze": "wca analyze \"src/**/*.ts\" --outFile custom-elements.json",
-    "serve": "es-dev-server --node-resolve --watch --app-index index.html",
+    "serve": "es-dev-server --node-resolve --watch --http2 --app-index index.html --port 8000",
     "test": "karma start karma.conf.cjs",
     "test:watch": "karma start karma.conf.cjs --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start karma.conf.cjs --update-snapshots",
@@ -28,10 +29,18 @@
   "dependencies": {
     "@appnest/web-router": "^1.4.2",
     "@fortawesome/fontawesome-free": "^5.15.2",
+    "@vaadin/vaadin-grid": "^5.7.7",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.16.1",
+    "express": "^4.17.1",
     "fa-icons": "^0.2.0",
+    "fast-xml-parser": "^3.17.6",
     "i18next": "^19.8.4",
     "i18next-wc": "^1.1.0",
     "lit-element": "^2.3.1",
+    "request": "^2.88.2",
     "twind": "^0.11.2"
   },
   "devDependencies": {

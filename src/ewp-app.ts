@@ -1,4 +1,6 @@
 import '@appnest/web-router';
+import 'fa-icons';
+
 import './i18n';
 
 import {html, customElement, query, PropertyValues} from 'lit-element';
@@ -9,6 +11,7 @@ import './View/layout/Header/header';
 
 import {EwpHomePage} from './View/pages/home/home-page';
 import {EwpProfExamsPage} from './View/pages/professor/exams/prof-exams-page';
+import { EwpLoginPage } from './View/pages/login/login-page';
 
 function isAuthenticatedGuard() {
   if (localStorage.getItem('auth') == null) {
@@ -33,6 +36,10 @@ const ROUTES: IRoute[] = [
     path: 'home',
     component: EwpHomePage,
     guards: [isNotAuthenticatedGuard],
+  },
+  {
+    path: 'login',
+    component: EwpLoginPage,
   },
   {
     path: 'prof/exams',

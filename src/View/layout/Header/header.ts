@@ -1,5 +1,4 @@
 import {html, customElement, property} from 'lit-element';
-import 'fa-icons';
 import i18next from '../../../i18n';
 
 import {CustomElement} from '../../../custom-element';
@@ -14,6 +13,8 @@ export class EwpHeader extends CustomElement {
   isLoggedIn = !!localStorage.getItem('auth');
 
   _handleLogin() {
+    // window.location.href =
+    //   'https://sso.hua.gr/login?locale=el&service=https://localhost:8000/login';
     this.isLoggedIn = true;
     localStorage.setItem('auth', 'true');
     history.replaceState(undefined, '', 'prof/exams');
@@ -85,7 +86,7 @@ export class EwpHeader extends CustomElement {
                         <a
                           class=${this
                             .tw`px-3 py-1 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75`}
-                          href="prof/exams"
+                          href="/prof/exams"
                         >
                           <intl-message label="Exams"></intl-message>
                         </a>
